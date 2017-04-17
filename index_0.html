@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>街舞舞者在台上的os</title>
+  <link rel="stylesheet" href="animate.css">
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      font-family: Helvetica, Tahoma, Arial, STXihei, “华文细黑”, “Microsoft YaHei”, “微软雅黑”, SimSun, “宋体”, Heiti, “黑体”, sans-serif;
+      font-size: 16px;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container > div {
+      text-align: justify;
+      max-width: 45%;
+    }
+    .container p {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #cacaca;
+    }
+    .footer {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      text-align: center;
+    }
+    button {
+      margin-top: 10px;
+      border: 1px solid #cacaca;
+      background-color: #fff;
+      border-radius: 15px;
+    }
+    #lable {
+      color: #898989;
+      font-size: 14px;
+    }
+    #replace {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      padding: 8px;
+    }
+
+  </style>
+
+
+</head>
+<body>
+  <div class="container">
+    <p class="animated flipInY "style="margin:50% 20% 40% 20%;text-align:center; color: black; " id="content"></p>
+    <button style="box-shadow:0px 0px  5px rgba(0, 204, 204, .5); " type="button" id="replace">换一个os</button>
+    <div class="footer">
+      <p class="lable">菜鸟kane出品</p>
+    </div>
+  </div>
+  <script>
+    var contents_list = [
+      '灯光师是傻逼么',
+      '又放炮了，没事没事，他们没应该在看我',
+      '观众怎么这么冷漠',
+      '果然埃及手容易炸啊哈哈哈',
+      '快给我pass卡啊哥',
+      '下一个动作是什么来着？？？',
+      '可不可以不要喷干冰了，我脚都要废了',
+      '她来了！！！好紧张！！！'
+    ];
+    var content_wrapper=document.getElementById('content');
+    var number_list =[];
+    var random_number = 0;
+    replaceContent();
+
+    var replace_btn = document.querySelector('#replace');
+    replace_btn.addEventListener('click',replaceContent);
+    function replaceContent() {
+      random_number = Math.floor(Math.random()* contents_list.length);
+      if (number_list.length == contents_list.length) {
+        number_list= [];
+      }
+      if (number_list.indexOf(random_number) != -1) {
+        replace_another_number();
+      }
+      number_list.push(random_number);
+      console.log(number_list);
+      content_wrapper.innerHTML = contents_list[random_number];
+    }
+    function replace_another_number(){
+      for (var i = 0; i < contents_list.length; i++) {
+        if (number_list.indexOf(i) == -1) {
+          random_number = i;
+        }
+      }
+    }
+
+  </script>
+
+</body>
+</html>
