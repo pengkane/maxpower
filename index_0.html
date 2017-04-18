@@ -64,13 +64,19 @@
 </head>
 <body>
   <div class="container">
-    <p class="animated flipInY "style="margin:50% 20% 40% 20%;text-align:center; color: black; " id="content"></p>
+    <p class="animated flipInY " style="margin:60% 20% 40% 20%;text-align:center; color: black; " id="content"></p>
     <button style="box-shadow:0px 0px  5px rgba(0, 204, 204, .5); " type="button" id="replace">换一个os</button>
     <div class="footer">
       <p class="lable">菜鸟kane出品</p>
     </div>
   </div>
   <script>
+    window.onload = function () {
+    document.addEventListener('touchstart',
+      function (event) {
+        event.preventDefault();
+      }
+    );
     var contents_list = [
       '灯光师是傻逼么',
       '又放炮了，没事没事，他们没应该在看我',
@@ -106,7 +112,9 @@
           random_number = i;
         }
       }
-    }
+   }
+}
+
 
   </script>
 
